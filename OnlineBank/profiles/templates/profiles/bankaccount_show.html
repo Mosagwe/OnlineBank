@@ -1,0 +1,39 @@
+{% extends 'profiles/base.html' %}
+{% block bodycontent %}
+
+    <section id="welcome_post" class="col-9">
+        <h2>Welcome, <span id="prof_name">{{ user }}.</span> </h2>
+        <h4 style="font-weight: 300;">It's good to have you here.</h4>   
+        <br>
+        <div>
+            <h2>Manage Bank Accounts</h2>
+            <a href="/banks/create">Create</a>
+           
+              <table class="table table-bordered">
+                  <thead>
+                      <th>Account Name</th>
+                      <th>Account Number</th>
+                      <th>Account Type</th>
+                      <th>Balance</th>
+                  </thead>
+                  <tbody>
+                      {% for bankaccount in bankaccounts %}
+                      <tr>
+                          <td>{{ bankaccount.bankAccountName}}</td>
+                          <td>{{ bankaccount.accountNo}}</td>
+                          <td>{{ bankaccount.accounttype_id.accountName}}</td>
+                          <td>{{ bankaccount.totalBalance}}</td>
+
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+
+              </table>
+          
+        </div>
+        
+      
+        
+    </section>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends './base.html' %}
+{load static}
+{%block bodycontent%}
+    <div class="container py-5">
+        <h1>Sign in</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+                           
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <p class="text-center">If you dont have an account, <a href="/register">register</a> instead.</p>
+    </div>
+{%endblock%}
